@@ -1,0 +1,41 @@
+{
+  "name": "findit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "server/tests"
+  },
+  "scripts": {
+    "start": "nodemon server.js --exec babel-node --presets env",
+    "release": "npm run clean && npm run build && npm run serve",
+    "clean": "rm -rf server/dist && mkdir dist",
+    "build": "babel . -s -D -d server/dist --presets env --ignore node_modules",
+    "serve": "node server/dist/server.js",
+    "vision": "nodemon server/tests/visionTest.js --exec babel-node --presets env",
+    "scrapeTest": "nodemon server/tests/scraperTest.js --exec babel-node --presets env",
+    "imageFilterTest": "nodemon server/tests/imageFilterTest.js --exec babel-node --presets env",
+    "dataTest": "nodemon server/tests/dataTest.js --exec babel-node --presets env"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/vision": "^1.4.0",
+    "base64-img": "^1.0.4",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "image-to-base64": "^2.0.1",
+    "node-fetch": "^2.6.0",
+    "puppeteer": "^1.20.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.19.3",
+    "request": "^2.88.0"
+  }
+}
